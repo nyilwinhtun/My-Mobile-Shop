@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THE BOYS MOBILE - Management System</title>
 
-  <!-- PWA Manifest & Meta for Phone Home Screen Install -->
-  <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIlRIRSBCT1lTIE1PQklMRSIsCiAgInNob3J0X25hbWUiOiAiVEhFIEJPWVMiLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiI2Y4ZmF0ZCIsCiAgInRoZW1lX2NvbG9yIjogIiMwMjg0YzciCn0=">
+  <!-- PWA Manifest & Meta Links -->
+  <link rel="manifest" href="manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="THE BOYS">
@@ -442,6 +442,15 @@
 
   <!-- APP LOGIC & SCRIPT -->
   <script>
+    // Register Service Worker for PWA Add to Home Screen Support
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('Service Worker registered!'))
+          .catch(err => console.log('Service Worker registration failed: ', err));
+      });
+    }
+
     // INITIAL APP STATE
     let state = {
       items: [
