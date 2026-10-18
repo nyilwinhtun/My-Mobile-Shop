@@ -1,0 +1,15 @@
+{
+  "name": "THE BOYS MOBILE",
+  "short_name": "THE BOYS",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f8fatd",
+  "theme_color": "#0284c7",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3076/3076127.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
